@@ -1,0 +1,89 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "description": "",
+    "version": "MVC-1/2022",
+    "title": "MVC-1/2022"
+  },
+  "host": "localhost:3000",
+  "basePath": "/",
+  "tags": [
+    {
+      "name": "MVC 1",
+      "description": "Answer"
+    }
+   
+  ],
+
+   "schemes": ["http"],
+  "paths": {
+    "/MVC 1": {
+      "post": {
+        "tags": ["MVC 1"],
+        "summary": "Answer",
+        "description": "",
+        "consumes": ["application/x-www-form-urlencoded"],
+        "parameters": [
+          {
+            "in": "formData", 
+            "name": "Latitude",
+            "description": "ค่าละติจูด อยู่ระหว่าง 90 องศาเหนือ ถึง 90 องศาใต้",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "formData",
+            "name": "Degrees",
+            "description": "องศาเหนือ(N)หรือองศาใต้(S)", 
+            "required": true,
+            "type": "string",
+            "enum": ["N","S","E","W"]
+          }, 
+          {
+            "in": "formData",
+            "name": "Longitude",
+            "description": "ค่าลองจิจูด จะอยู่ระหว่าง 180 องศาตะวันตก ถึง 180 องศาตะวันออก", 
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "formData",
+            "name": "Degrees",
+            "description": "องศาเหนือ(N)หรือองศาใต้(S)",
+            "required": true,
+            "type": "string",
+            "enum": ["N","S","E","W"] 
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "properties": {
+                "message": {
+                  "type": "string"
+                }
+              },
+              "example": {
+                "message": "Complete"
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "schema": {
+              "properties": {
+                "message": {
+                  "type": "string"
+                }
+              },
+              "example": {
+                "message": "Error"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
